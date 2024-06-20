@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-
+import calendarImage from './assets/calendar-icon.png';  // Ruta a tu imagen
 
 
 const Calendar: React.FC = () => {
@@ -15,6 +15,14 @@ const Calendar: React.FC = () => {
     setCurrentDate(new Date(currentDate.getFullYear(), currentDate.getMonth() - 1, 1));
   };
 
+  const getMonthName = (date: Date) => {
+    const monthNames = [
+      'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
+      'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'
+    ];
+    return monthNames[date.getMonth()];
+  };
+
   const getDaysInMonth = (date: Date) => {
     const days = [];
     const year = date.getFullYear();
@@ -22,7 +30,7 @@ const Calendar: React.FC = () => {
     const firstDayOfMonth = new Date(year, month, 1).getDay();
     const daysInMonth = new Date(year, month + 1, 0).getDate();
 
-    for (let i = 0; i < firstDayOfMonth; i++) {
+    for (let i = 0; i < firstDayOfMonth - 1; i++) {
       days.push('');
     }
 
@@ -38,7 +46,9 @@ const Calendar: React.FC = () => {
   return (
     <div style={styles.container}>
       <div style={styles.navigation}>
-        
+        <button onClick={prevMonth} style={styles.navButton}>←</button>
+        <h1 style={styles.month}>{getMonthName(currentDate)}</h1>
+        <button onClick={nextMonth} style={styles.navButton}>→</button>
       </div>
       <div style={styles.calendar}>
         <div style={styles.header}>
@@ -62,9 +72,10 @@ const Calendar: React.FC = () => {
 
 const styles: { [key: string]: React.CSSProperties } = {
   container: {
-    maxWidth: '600px',
-    margin: '20px auto',
+    maxWidth: '800px',
+    margin: '0px auto',
     textAlign: 'center',
+    position: 'relative',
   },
   navigation: {
     display: 'flex',
@@ -72,50 +83,50 @@ const styles: { [key: string]: React.CSSProperties } = {
     alignItems: 'center',
     marginBottom: '20px',
   },
-  button: {
-    padding: '10px 20px',
-    fontSize: '16px',
+  navButton: {
+    padding: '10px',
+    fontSize: '20px',
     cursor: 'pointer',
+    backgroundColor: 'transparent',
+    border: 'none',
+    color: '#e6702e',
   },
   month: {
-    margin: '0 20px',
     fontSize: '24px',
     fontWeight: 'bold',
+    color: '#e6702e',
   },
   calendar: {
     display: 'grid',
-    gridTemplateRows: 'auto repeat(16, 1fr)',
-    border: '10px solid black',
-    borderRadius: '18px',
+    gridTemplateRows: 'auto repeat(6, 1fr)',
+    border: '5x solid #e6702e',
+    borderRadius: '1px',
     overflow: 'hidden',
+    height:'330px',
   },
   header: {
     display: 'grid',
     gridTemplateColumns: 'repeat(7, 1fr)',
-    borderBottom: '11px solid black',
+    borderBottom: '1px solid #e6702e',
+  
   },
   day: {
     padding: '10px',
     textAlign: 'center',
     fontWeight: 'bold',
     color: '#e6702e',
+    backgroundColor:'white',
   },
   week: {
     display: 'grid',
     gridTemplateColumns: 'repeat(7, 1fr)',
   },
   date: {
-    borderRight: '1px solid black',
-    borderBottom: '1px solid black',
+    border: '1px solid #e6702e', 
+    borderRight: '1px solid #e6702e',
+    borderBottom: '1px solid #e6702e',
     padding: '20px',
     textAlign: 'center',
-    color: '#e6702e',
-  },
-  logo: {
-    position: 'absolute',
-    bottom: '10px',
-    right: '10px',
-    fontSize: '20px',
     color: '#e6702e',
   },
 };
