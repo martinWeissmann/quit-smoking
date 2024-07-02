@@ -139,7 +139,7 @@ const boton: React.CSSProperties = {
   alignItems: 'center',
   justifyContent: 'center',
   cursor: 'pointer',
-  marginLeft: '40px', // Ajusta este valor para mover la flecha más a la derecha
+  left: '40px', // Ajusta este valor para mover la flecha más a la derecha
 
 };
 
