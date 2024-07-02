@@ -6,7 +6,8 @@ const PreguntasSeguimiento: React.FC = () => {
       <h1 style={titulo}>Preguntas de seguimiento</h1>
       <div style={elementosDecorativos}>
         <div style={lineaNaranja}></div>
-        <div style={logo}>qs</div>
+        <div style={logo}></div>
+        <img src="C:\Users\47699199\Desktop\nextjs\quit-smoking\imagenes\image 1 (1).png" alt="" style={logo} />
         <div style={curva}></div>
       </div>
     </div>

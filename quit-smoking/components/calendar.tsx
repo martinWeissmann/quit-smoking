@@ -17,6 +17,8 @@ const CalendarioJulio: React.FC = () => {
       <div style={elementosDecorativos}>
         <div style={lineaNaranja}></div>
         <div style={logo}>qs</div>
+        <img src="C:\Users\47699199\Desktop\nextjs\quit-smoking\imagenes\image 1 (1).png" alt="Logo" style={logo} />
+
         <div style={curva}></div>
       </div>
       <div style={botones}>
