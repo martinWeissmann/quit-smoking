@@ -1,134 +1,148 @@
-'use client';
+import React from 'react';
 
-import React, { useState } from 'react';
-import calendarImage from './assets/calendar-icon.png';  // Ruta a tu imagen
-
-
-const Calendar: React.FC = () => {
-  const [currentDate, setCurrentDate] = useState(new Date());
-
-  const nextMonth = () => {
-    setCurrentDate(new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 1));
-  };
-
-  const prevMonth = () => {
-    setCurrentDate(new Date(currentDate.getFullYear(), currentDate.getMonth() - 1, 1));
-  };
-
-  const getMonthName = (date: Date) => {
-    const monthNames = [
-      'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
-      'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'
-    ];
-    return monthNames[date.getMonth()];
-  };
-
-  const getDaysInMonth = (date: Date) => {
-    const days = [];
-    const year = date.getFullYear();
-    const month = date.getMonth();
-    const firstDayOfMonth = new Date(year, month, 1).getDay();
-    const daysInMonth = new Date(year, month + 1, 0).getDate();
-
-    for (let i = 0; i < firstDayOfMonth - 1; i++) {
-      days.push('');
-    }
-
-    for (let i = 1; i <= daysInMonth; i++) {
-      days.push(i);
-    }
-
-    return days;
-  };
-
-  const days = getDaysInMonth(currentDate);
-
+const CalendarioJulio: React.FC = () => {
   return (
-    <div style={styles.container}>
-      <div style={styles.navigation}>
-        <button onClick={prevMonth} style={styles.navButton}>←</button>
-        <h1 style={styles.month}>{getMonthName(currentDate)}</h1>
-        <button onClick={nextMonth} style={styles.navButton}>→</button>
+    <div style={contenedor}>
+      <h1 style={titulo}>Julio</h1>
+      <div style={diasSemana}>
+        {['Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'].map((dia) => (
+          <span key={dia} style={diaSemana}>{dia}</span>
+        ))}
       </div>
-      <div style={styles.calendar}>
-        <div style={styles.header}>
-          <div style={styles.day}>Lunes</div>
-          <div style={styles.day}>Martes</div>
-          <div style={styles.day}>Miércoles</div>
-          <div style={styles.day}>Jueves</div>
-          <div style={styles.day}>Viernes</div>
-          <div style={styles.day}>Sábado</div>
-          <div style={styles.day}>Domingo</div>
-        </div>
-        <div style={styles.week}>
-          {days.map((day, index) => (
-            <div key={index} style={styles.date}>{day}</div>
-          ))}
-        </div>
+      <div style={calendario}>
+        {Array.from({ length: 30 }, (_, i) => (
+          <div key={i + 1} style={dia}>{i + 1}</div>
+        ))}
+      </div>
+      <div style={elementosDecorativos}>
+        <div style={lineaNaranja}></div>
+        <div style={logo}>qs</div>
+        <img src="C:\Users\47699199\Desktop\nextjs\quit-smoking\imagenes\image 1 (1).png" alt="Logo" style={logo} />
+
+        <div style={curva}></div>
+      </div>
+      <div style={botones}>
+        <button style={boton}>&larr;</button>
+        <button style={boton}>&rarr;</button>
       </div>
     </div>
   );
 };
 
-const styles: { [key: string]: React.CSSProperties } = {
-  container: {
-    maxWidth: '800px',
-    margin: '0px auto',
-    textAlign: 'center',
-    position: 'relative',
-  },
-  navigation: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    marginBottom: '20px',
-  },
-  navButton: {
-    padding: '10px',
-    fontSize: '20px',
-    cursor: 'pointer',
-    backgroundColor: 'transparent',
-    border: 'none',
-    color: '#e6702e',
-  },
-  month: {
-    fontSize: '24px',
-    fontWeight: 'bold',
-    color: '#e6702e',
-  },
-  calendar: {
-    display: 'grid',
-    gridTemplateRows: 'auto repeat(6, 1fr)',
-    border: '5x solid #e6702e',
-    borderRadius: '1px',
-    overflow: 'hidden',
-    height:'330px',
-  },
-  header: {
-    display: 'grid',
-    gridTemplateColumns: 'repeat(7, 1fr)',
-    borderBottom: '1px solid #e6702e',
-  
-  },
-  day: {
-    padding: '10px',
-    textAlign: 'center',
-    fontWeight: 'bold',
-    color: '#e6702e',
-    backgroundColor:'white',
-  },
-  week: {
-    display: 'grid',
-    gridTemplateColumns: 'repeat(7, 1fr)',
-  },
-  date: {
-    border: '1px solid #e6702e', 
-    borderRight: '1px solid #e6702e',
-    borderBottom: '1px solid #e6702e',
-    padding: '20px',
-    textAlign: 'center',
-    color: '#e6702e',
-  },
+const contenedor: React.CSSProperties = {
+  position: 'relative',
+  width: '100%',
+  height: '100vh',
+  backgroundColor: 'white',
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  justifyContent: 'center',
+  fontFamily: 'Arial, sans-serif',
 };
 
-export default Calendar;
+const titulo: React.CSSProperties = {
+  fontSize: '24px',
+  color: '#F7931E',
+  fontWeight: 'bold',
+  marginBottom: '20px',
+};
+
+const diasSemana: React.CSSProperties = {
+  display: 'grid',
+  gridTemplateColumns: 'repeat(7, 1fr)',
+  width: '70%',
+  textAlign: 'center',
+  marginBottom: '10px',
+};
+
+const diaSemana: React.CSSProperties = {
+  fontSize: '16px',
+  color: '#F7931E',
+  fontWeight: 'bold',
+};
+
+const calendario: React.CSSProperties = {
+  display: 'grid',
+  gridTemplateColumns: 'repeat(7, 1fr)',
+  gap: '5px',
+  width: '70%',
+};
+
+const dia: React.CSSProperties = {
+  width: '100%',
+  paddingTop: '100%',
+  position: 'relative',
+  border: '1px solid #F7931E',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  fontSize: '16px',
+  color: '#F7931E',
+  fontWeight: 'bold',
+};
+
+const elementosDecorativos: React.CSSProperties = {
+  position: 'absolute',
+  width: '100%',
+  height: '100%',
+  top: 0,
+  left: 0,
+};
+
+const lineaNaranja: React.CSSProperties = {
+  position: 'absolute',
+  top: '5%',
+  left: 0,
+  width: '10%',
+  height: '2px',
+  backgroundColor: '#F7931E',
+};
+
+const logo: React.CSSProperties = {
+  position: 'absolute',
+  top: '10%',
+  right: '5%',
+  fontSize: '24px',
+  color: '#F7931E',
+  fontWeight: 'bold',
+};
+
+const curva: React.CSSProperties = {
+  position: 'absolute',
+  bottom: '10%',
+  right: '10%',
+  width: '50px',
+  height: '50px',
+  borderTop: '2px solid #F7931E',
+  borderLeft: '2px solid #F7931E',
+  borderRadius: '25px',
+  transform: 'rotate(45deg)',
+};
+
+const botones: React.CSSProperties = {
+  position: 'absolute',
+  bottom: '5%',
+  width: '100%',
+  display: 'flex',
+  justifyContent: 'space-between',
+  padding: '0 20px',
+};
+
+const boton: React.CSSProperties = {
+  backgroundColor: '#F7931E',
+  color: 'white',
+  border: 'none',
+  borderRadius: '50%',
+  width: '40px',
+  height: '40px',
+  fontSize: '24px',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  cursor: 'pointer',
+  left: '40px', // Ajusta este valor para mover la flecha más a la derecha
+
+};
+
+export default CalendarioJulio;
