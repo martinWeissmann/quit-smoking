@@ -7,7 +7,6 @@ const Preguntas: React.FC = () => {
       color: '#f49034',
       padding: '20px',
       backgroundColor: '#fff',
-      
       borderRadius: '8px',
       marginLeft: 'auto',
       marginRight: '250px',
@@ -51,11 +50,20 @@ const Preguntas: React.FC = () => {
       cursor: 'pointer',
       fontSize: '16px',
     } as React.CSSProperties,
+    image: {
+      display: 'block',
+      margin: '20px auto',
+      maxWidth: '100%',
+      height: 'auto',
+      paddingLeft:'800px',
+      marginTop:"-0px",
+    } as React.CSSProperties,
   };
 
   return (
     <div style={styles.container}>
       <h1 style={styles.title}>Preguntas de seguimiento básicas</h1>
+      <img src="/OS.png" alt="Descripción de la imagen" style={styles.image} />
       <div style={styles.question}>
         1. ¿Fumaste?
         <div style={styles.options}>
