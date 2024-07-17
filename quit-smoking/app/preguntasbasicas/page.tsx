@@ -20,9 +20,13 @@ const Preguntas: React.FC = () => {
       color: '#f49034',
     } as React.CSSProperties,
     question: {
+      marginTop: '50px', // Ajusta este valor según sea necesario
+
       fontSize: '18px',
       color: '#f49034',
       margin: '10px 0',
+    
+
     } as React.CSSProperties,
     options: {
       display: 'flex',
@@ -51,19 +55,49 @@ const Preguntas: React.FC = () => {
       fontSize: '16px',
     } as React.CSSProperties,
     image: {
-      display: 'block',
+     
       margin: '20px auto',
       maxWidth: '100%',
       height: 'auto',
-      paddingLeft:'800px',
-      marginTop:"-0px",
+      paddingLeft:'900px',
+      
+      marginTop:"-200px",
+    } as React.CSSProperties,
+    vector: {
+      position: 'absolute',
+      margin: '20px auto',
+      maxWidth: '100%',
+      height: 'auto',
+      paddingLeft:'900px',
+      right:'1050px',
+      bottom:'400px',
+      
+      marginTop:"-200px",
+    } as React.CSSProperties,
+    imagen: {
+      position: 'absolute',
+      margin: '20px auto',
+      maxWidth: '100%',
+      height: 'auto',
+      paddingLeft:'900px',
+      right:'50px',
+      bottom:'0px',
+      top:'240px',
+      
     } as React.CSSProperties,
   };
+
+
+ 
 
   return (
     <div style={styles.container}>
       <h1 style={styles.title}>Preguntas de seguimiento básicas</h1>
-      <img src="/OS.png" alt="Descripción de la imagen" style={styles.image} />
+      <img src="/OS.png"  style={styles.image} />
+      <img src="/vector.png"  style={styles.vector} />
+      <img src="/imagen.png"  style={styles.imagen} />
+
+
       <div style={styles.question}>
         1. ¿Fumaste?
         <div style={styles.options}>
