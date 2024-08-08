@@ -7,7 +7,6 @@ const Preguntas: React.FC = () => {
       color: '#f49034',
       padding: '20px',
       backgroundColor: '#fff',
-      
       borderRadius: '8px',
       marginLeft: 'auto',
       marginRight: '250px',
@@ -21,9 +20,13 @@ const Preguntas: React.FC = () => {
       color: '#f49034',
     } as React.CSSProperties,
     question: {
+      marginTop: '50px', // Ajusta este valor según sea necesario
+
       fontSize: '18px',
       color: '#f49034',
       margin: '10px 0',
+    
+
     } as React.CSSProperties,
     options: {
       display: 'flex',
@@ -37,6 +40,8 @@ const Preguntas: React.FC = () => {
     } as React.CSSProperties,
     checkbox: {
       marginLeft: '5px',
+      transform: 'scale(3)', // Escala los checkboxes al 150% de su tamaño original
+
     } as React.CSSProperties,
     buttonContainer: {
       textAlign: 'center',
@@ -51,11 +56,50 @@ const Preguntas: React.FC = () => {
       cursor: 'pointer',
       fontSize: '16px',
     } as React.CSSProperties,
+    image: {
+     
+      margin: '20px auto',
+      maxWidth: '100%',
+      height: 'auto',
+      paddingLeft:'900px',
+      
+      marginTop:"-200px",
+    } as React.CSSProperties,
+    vector: {
+      position: 'absolute',
+      margin: '20px auto',
+      maxWidth: '100%',
+      height: 'auto',
+      paddingLeft:'900px',
+      right:'1050px',
+      bottom:'400px',
+      
+      marginTop:"-200px",
+    } as React.CSSProperties,
+    imagen: {
+      position: 'absolute',
+      margin: '20px auto',
+      maxWidth: '100%',
+      height: 'auto',
+      paddingLeft:'900px',
+      right:'50px',
+      bottom:'0px',
+      top:'240px',
+      
+    } as React.CSSProperties,
   };
+
+
+ 
 
   return (
     <div style={styles.container}>
       <h1 style={styles.title}>Preguntas de seguimiento avanzadas</h1>
+      <img src="/OS.png"  style={styles.image} />
+      <img src="/vector.png"  style={styles.vector} />
+      <img src="/imagen.png"  style={styles.imagen} />
+
+
       <div style={styles.question}>
         1. ¿Tiene menos problemas digestivos como acidez o indigestion?
         <div style={styles.options}>
@@ -70,7 +114,7 @@ const Preguntas: React.FC = () => {
         </div>
       </div>
       <div style={styles.question}>
-        2. ¿Ha medido su presion arterial y,de ser asi,ha habido alguna mejora?
+        2. ¿Ha medido su presion arterial,y de ser asi,ha habido alguna mejora?
         <div style={styles.options}>
           <div style={styles.option}>
             <label>Si</label>
