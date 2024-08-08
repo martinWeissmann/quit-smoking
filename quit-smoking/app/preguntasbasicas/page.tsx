@@ -139,6 +139,7 @@ const Preguntas: React.FC = () => {
       </div>
       <div style={styles.buttonContainer}>
         <button style={styles.button}>Enviar</button>
+        
       </div>
     </div>
   );
