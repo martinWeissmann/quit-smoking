@@ -18,7 +18,7 @@ const Calendario: React.FC = () => {
   const [mes, setMes] = useState(mesActual);
   const [anio, setAnio] = useState(anioActual);
 
-  const dias = ['L', 'M', 'M', 'J', 'V', 'S', 'D']; // Comienza con Lunes
+  const dias = ['LUNES', 'MARTES', 'MIERCOLES', 'JUEVES', 'VIERNES', 'SABADO', 'DOMINGO']; // Comienza con Lunes
   const primerDia = getPrimerDiaDelMes(mes, anio);
   const diasEnMes = getDiasEnMes(mes, anio);
 
@@ -120,14 +120,18 @@ const diasSemana: React.CSSProperties = {
   width: '100%',
   maxWidth: '500px',
   textAlign: 'center',
-  marginBottom: '200px',
+  marginBottom: '130px',
+  
 };
 
 const diaSemana: React.CSSProperties = {
   fontSize: '14px',
   color: '#F7931E',
   fontWeight: 'bold',
-  padding: '10px',
+  padding: '45px',
+  gridColumnGap: '110px', // Espacio entre columnas
+  marginLeft: '-70px', // Mueve cada día más a la izquierda
+  
 };
 
 const calendario: React.CSSProperties = {
@@ -135,13 +139,15 @@ const calendario: React.CSSProperties = {
   gridTemplateColumns: 'repeat(7, 1fr)',
   gridGap: '1px',
   width: '100%',
-  maxWidth: '720px',
+  maxWidth: '590px',
   border: '1px solid #F7931E',
+  marginTop: '-160px', // Ajusta este valor según sea necesario
+
 };
 
 const diaContenedor: React.CSSProperties = {
   width: '100%',
-  paddingTop: '100%',
+  paddingTop: '85%',
   position: 'relative',
   border: '1px solid #F7931E',
   display: 'flex',
@@ -158,8 +164,10 @@ const botones: React.CSSProperties = {
   width: '100%',
   display: 'flex',
   justifyContent: 'space-between',
-  padding: '0 20px',
-  marginBottom: '80px',
+  padding: '10 20px',
+  marginBottom: '70px',
+  marginLeft: '40px', // Ajusta este margen para mover el botón hacia la derecha o izquierda
+
 };
 
 const botonIzquierda: React.CSSProperties = {
@@ -167,14 +175,16 @@ const botonIzquierda: React.CSSProperties = {
   color: 'white',
   border: 'none',
   borderRadius: '50%',
-  width: '30px',
+  width: '60px',
   height: '30px',
   fontSize: '20px',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
   cursor: 'pointer',
-  
+  marginLeft: '110px', // Ajusta este margen para mover el botón hacia la derecha o izquierda
+  bottom: '42%',
+
 };
 
 const botonDerecha: React.CSSProperties = {
@@ -182,13 +192,15 @@ const botonDerecha: React.CSSProperties = {
   color: 'white',
   border: 'none',
   borderRadius: '50%',
-  width: '30px',
+  width: '60px',
   height: '30px',
   fontSize: '20px',
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
   cursor: 'pointer',
+  marginRight: '130px', // Ajusta este margen para mover el botón hacia la derecha o izquierda
+
   
 };
 
@@ -203,25 +215,25 @@ const elementosDecorativos: React.CSSProperties = {
 
 const lineaIzquierda: React.CSSProperties = {
   position: 'absolute',
-  top: '10%',
-  left: '10%',
-  width: '130px', 
+  top: '18%',
+  left: '11%',
+  width: '200px', 
   height: 'auto',
 };
 
 const logo: React.CSSProperties = {
   position: 'absolute',
-  top: '15%',
-  right: '10%',
-  width: '60px', 
+  top: '19%',
+  right: '8%',
+  width: '100px', 
   height: 'auto',
 };
 
 const curvaDerecha: React.CSSProperties = {
   position: 'absolute',
-  bottom: '20%',
-  right: '11%',
-  width: '80px', 
+  bottom: '0%',
+  right: '6%',
+  width: '170px', 
   height: 'auto',
   objectFit: 'cover',
 };

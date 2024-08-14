@@ -70,7 +70,7 @@ const Preguntas: React.FC = () => {
       height: 'auto',
       paddingLeft:'900px',
       right:'1050px',
-      bottom:'400px',
+      bottom:'520px',
       
       marginTop:"-200px",
     } as React.CSSProperties,
@@ -78,11 +78,12 @@ const Preguntas: React.FC = () => {
       position: 'absolute',
       margin: '20px auto',
       maxWidth: '100%',
+      width:'150px',
       height: 'auto',
       paddingLeft:'900px',
-      right:'50px',
+      right:'0px',
       bottom:'0px',
-      top:'240px',
+      top:'270px',
       
     } as React.CSSProperties,
   };

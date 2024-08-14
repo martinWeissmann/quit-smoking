@@ -31,6 +31,7 @@ const Consejos: React.FC = () => {
   };
 
   return (
+    
     <div style={styles.consejosContainer}>
       <h1 style={styles.title}>Consejos</h1>
       <div style={styles.consejo}>
