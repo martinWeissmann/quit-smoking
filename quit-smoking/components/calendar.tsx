@@ -117,7 +117,7 @@ const titulo: React.CSSProperties = {
 const diasSemana: React.CSSProperties = {
   display: 'grid',
   gridTemplateColumns: 'repeat(7, 1fr)',
-  width: '100%',
+  width: '90%',
   maxWidth: '500px',
   textAlign: 'center',
   marginBottom: '130px',
