@@ -8,7 +8,7 @@ const Consejos: React.FC = () => {
       padding: '20px',
       backgroundColor: '#fff',
       borderRadius: '8px',
-      marginLeft: '20px',
+      marginLeft: '0px',
     } as React.CSSProperties,
     title: {
       fontSize: '36px',
@@ -17,6 +17,13 @@ const Consejos: React.FC = () => {
     } as React.CSSProperties,
     consejo: {
       marginTop: '20px',
+    } as React.CSSProperties,
+    image: {
+      margin: '20px auto',
+      maxWidth: '100%',
+      height: 'auto',
+      paddingLeft: '1120px',
+      marginTop: '-200px',
     } as React.CSSProperties,
     subtitle: {
       fontSize: '24px',
@@ -34,6 +41,7 @@ const Consejos: React.FC = () => {
     
     <div style={styles.consejosContainer}>
       <h1 style={styles.title}>Consejos</h1>
+      <img src="/OS.png" style={styles.image} />
       <div style={styles.consejo}>
         <h2 style={styles.subtitle}>1. Identifique y Maneje sus Desencadenantes</h2>
         <p style={styles.paragraph}>
