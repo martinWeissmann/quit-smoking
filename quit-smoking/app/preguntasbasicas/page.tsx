@@ -12,6 +12,7 @@ const Preguntas: React.FC = () => {
       marginRight: '250px',
       width: '60%',
       textAlign: 'left',
+      
     } as React.CSSProperties,
     title: {
       fontSize: '24px',
@@ -54,6 +55,7 @@ const Preguntas: React.FC = () => {
     buttonContainer: {
       textAlign: 'center',
       marginTop: '20px',
+    
     } as React.CSSProperties,
     button: {
       backgroundColor: '#f49034',
@@ -63,6 +65,7 @@ const Preguntas: React.FC = () => {
       borderRadius: '5px',
       cursor: 'pointer',
       fontSize: '16px',
+      
     } as React.CSSProperties,
     image: {
       margin: '20px auto',
