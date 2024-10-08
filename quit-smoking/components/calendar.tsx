@@ -223,7 +223,7 @@ const lineaIzquierda: React.CSSProperties = {
 
 const logo: React.CSSProperties = {
   position: 'absolute',
-  top: '19%',
+  top: '5%',
   right: '8%',
   width: '100px', 
   height: 'auto',

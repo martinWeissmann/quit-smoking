@@ -12,6 +12,7 @@ const Preguntas: React.FC = () => {
       marginRight: '250px',
       width: '60%',
       textAlign: 'left',
+      
     } as React.CSSProperties,
     title: {
       fontSize: '24px',
@@ -21,41 +22,40 @@ const Preguntas: React.FC = () => {
     } as React.CSSProperties,
     questionContainer: {
       display: 'flex',
-      alignItems: 'center', // Aligns the question text with the checkboxes
+      alignItems: 'center',
       marginTop: '30px',
     } as React.CSSProperties,
     questionText: {
       fontSize: '18px',
       color: '#f49034',
-      marginRight: '20px', // Adds space between the question text and the checkboxes
-      width: '50%', // Ensures consistent width for the question text
+      marginRight: '20px',
+      width: '50%',
     } as React.CSSProperties,
     options: {
       display: 'flex',
-      justifyContent: 'flex-start', // Align items to the left
-      marginLeft: '160px', // Adds space between the question text and the checkboxes
-
+      justifyContent: 'flex-start',
+      marginLeft: '160px',
     } as React.CSSProperties,
     option: {
       display: 'flex',
-      flexDirection: 'column', // Align label above checkbox
+      flexDirection: 'column',
       alignItems: 'center',
       marginLeft: '20px',
     } as React.CSSProperties,
     checkbox: {
-      width: '53px',  // Set width of checkbox
-      height: '52px', // Set height of checkbox
+      width: '53px',
+      height: '52px',
       cursor: 'pointer',
-      appearance: 'none', // Remove default styling of input
       backgroundColor: '#fff',
       border: '2px solid #f49034',
-      borderRadius: '4px', // Optional: slightly rounded corners
+      borderRadius: '4px',
       display: 'inline-block',
       position: 'relative',
     } as React.CSSProperties,
     buttonContainer: {
       textAlign: 'center',
       marginTop: '20px',
+    
     } as React.CSSProperties,
     button: {
       backgroundColor: '#f49034',
@@ -65,6 +65,7 @@ const Preguntas: React.FC = () => {
       borderRadius: '5px',
       cursor: 'pointer',
       fontSize: '16px',
+      
     } as React.CSSProperties,
     image: {
       margin: '20px auto',
@@ -108,11 +109,21 @@ const Preguntas: React.FC = () => {
         <div style={styles.options}>
           <div style={styles.option}>
             <label>Si</label>
-            <input type="radio" name="fumaste" style={styles.checkbox} />
+            <input
+              type="radio"
+              name="fumaste"
+              value="si"
+              style={styles.checkbox}
+            />
           </div>
           <div style={styles.option}>
             <label>No</label>
-            <input type="radio" name="fumaste" style={styles.checkbox} />
+            <input
+              type="radio"
+              name="fumaste"
+              value="no"
+              style={styles.checkbox}
+            />
           </div>
         </div>
       </div>
@@ -122,11 +133,21 @@ const Preguntas: React.FC = () => {
         <div style={styles.options}>
           <div style={styles.option}>
             <label>Si</label>
-            <input type="radio" name="ansiedad" style={styles.checkbox} />
+            <input
+              type="radio"
+              name="ansiedad"
+              value="si"
+              style={styles.checkbox}
+            />
           </div>
           <div style={styles.option}>
             <label>No</label>
-            <input type="radio" name="ansiedad" style={styles.checkbox} />
+            <input
+              type="radio"
+              name="ansiedad"
+              value="no"
+              style={styles.checkbox}
+            />
           </div>
         </div>
       </div>
@@ -136,11 +157,21 @@ const Preguntas: React.FC = () => {
         <div style={styles.options}>
           <div style={styles.option}>
             <label>Si</label>
-            <input type="radio" name="inquieto" style={styles.checkbox} />
+            <input
+              type="radio"
+              name="inquieto"
+              value="si"
+              style={styles.checkbox}
+            />
           </div>
           <div style={styles.option}>
             <label>No</label>
-            <input type="radio" name="inquieto" style={styles.checkbox} />
+            <input
+              type="radio"
+              name="inquieto"
+              value="no"
+              style={styles.checkbox}
+            />
           </div>
         </div>
       </div>
