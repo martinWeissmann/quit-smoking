@@ -1,3 +1,5 @@
+'use client'; // Añade esta línea para convertirlo en un Client Component
+
 import React from 'react';
 
 const Preguntas: React.FC = () => {
@@ -19,27 +21,37 @@ const Preguntas: React.FC = () => {
       textAlign: 'center',
       color: '#f49034',
     } as React.CSSProperties,
-    question: {
-      marginTop: '50px', // Ajusta este valor según sea necesario
-
+    questionContainer: {
+      display: 'flex',
+      alignItems: 'center',
+      marginTop: '30px',
+    } as React.CSSProperties,
+    questionText: {
       fontSize: '18px',
       color: '#f49034',
-      margin: '10px 0',
-    
-
+      marginRight: '20px',
+      width: '50%',
     } as React.CSSProperties,
     options: {
       display: 'flex',
-      justifyContent: 'flex-end',
-      marginBottom: '10px',
+      justifyContent: 'flex-start',
+      marginLeft: '160px',
     } as React.CSSProperties,
     option: {
       display: 'flex',
+      flexDirection: 'column',
       alignItems: 'center',
       marginLeft: '20px',
     } as React.CSSProperties,
     checkbox: {
-      marginLeft: '5px',
+      width: '53px',
+      height: '52px',
+      cursor: 'pointer',
+      backgroundColor: '#fff',
+      border: '2px solid #f49034',
+      borderRadius: '4px',
+      display: 'inline-block',
+      position: 'relative',
     } as React.CSSProperties,
     buttonContainer: {
       textAlign: 'center',
@@ -55,88 +67,132 @@ const Preguntas: React.FC = () => {
       fontSize: '16px',
     } as React.CSSProperties,
     image: {
-     
       margin: '20px auto',
       maxWidth: '100%',
       height: 'auto',
-      paddingLeft:'900px',
-      
-      marginTop:"-200px",
+      paddingLeft: '900px',
+      marginTop: '-200px',
     } as React.CSSProperties,
     vector: {
       position: 'absolute',
       margin: '20px auto',
       maxWidth: '100%',
       height: 'auto',
-      paddingLeft:'900px',
-      right:'1050px',
-      bottom:'400px',
-      
-      marginTop:"-200px",
+      paddingLeft: '900px',
+      right: '1050px',
+      bottom: '520px',
+      marginTop: '-200px',
     } as React.CSSProperties,
     imagen: {
       position: 'absolute',
       margin: '20px auto',
       maxWidth: '100%',
+      width: '150px',
       height: 'auto',
-      paddingLeft:'900px',
-      right:'50px',
-      bottom:'0px',
-      top:'240px',
-      
+      paddingLeft: '900px',
+      right: '0px',
+      bottom: '0px',
+      top: '270px',
+    } as React.CSSProperties,
+    backArrow: {
+      cursor: 'pointer',
+      position: 'absolute',
+      top: '20px',
+      left: '20px',
+      fontSize: '44px',
+      color: '#f49034',
     } as React.CSSProperties,
   };
 
-
- 
+  // Función para regresar a la página anterior
+  const goBack = () => {
+    window.history.back();
+  };
 
   return (
     <div style={styles.container}>
+      {/* Flecha de regreso */}
+      <span style={styles.backArrow} onClick={goBack}>
+        ← 
+      </span>
+
       <h1 style={styles.title}>Preguntas de seguimiento intermedias</h1>
-      <img src="/OS.png"  style={styles.image} />
-      <img src="/vector.png"  style={styles.vector} />
-      <img src="/imagen.png"  style={styles.imagen} />
+      <img src="/OS.png" style={styles.image} />
+      <img src="/vector.png" style={styles.vector} />
+      <img src="/imagen.png" style={styles.imagen} />
 
+      <div style={styles.questionContainer}>
+        <div style={styles.questionText}>1. ¿Sentiste mejoras a dias anteriores?</div>
+        <div style={styles.options}>
+          <div style={styles.option}>
+            <label>Si</label>
+            <input
+              type="radio"
+              name="fumaste"
+              value="si"
+              style={styles.checkbox}
+            />
+          </div>
+          <div style={styles.option}>
+            <label>No</label>
+            <input
+              type="radio"
+              name="fumaste"
+              value="no"
+              style={styles.checkbox}
+            />
+          </div>
+        </div>
+      </div>
 
-      <div style={styles.question}>
-        1. ¿Sentiste mejoras a dias anteriores?
+      <div style={styles.questionContainer}>
+        <div style={styles.questionText}>2. ¿Mejoro en su capacidad para respirar profundamente?</div>
         <div style={styles.options}>
           <div style={styles.option}>
             <label>Si</label>
-            <input type="checkbox" style={styles.checkbox} />
+            <input
+              type="radio"
+              name="ansiedad"
+              value="si"
+              style={styles.checkbox}
+            />
           </div>
           <div style={styles.option}>
             <label>No</label>
-            <input type="checkbox" style={styles.checkbox} />
+            <input
+              type="radio"
+              name="ansiedad"
+              value="no"
+              style={styles.checkbox}
+            />
           </div>
         </div>
       </div>
-      <div style={styles.question}>
-        2. ¿Mejoro en su capacidad para respirar profundamente?
+
+      <div style={styles.questionContainer}>
+        <div style={styles.questionText}>3. ¿Ha notado una mejora en su nivel de energia y vitalidad?</div>
         <div style={styles.options}>
           <div style={styles.option}>
             <label>Si</label>
-            <input type="checkbox" style={styles.checkbox} />
+            <input
+              type="radio"
+              name="inquieto"
+              value="si"
+              style={styles.checkbox}
+            />
           </div>
           <div style={styles.option}>
             <label>No</label>
-            <input type="checkbox" style={styles.checkbox} />
+            <input
+              type="radio"
+              name="inquieto"
+              value="no"
+              style={styles.checkbox}
+            />
           </div>
         </div>
       </div>
-      <div style={styles.question}>
-        3. ¿Ha notado una mejora en su nivel de energia y vitalidad?
-        <div style={styles.options}>
-          <div style={styles.option}>
-            <label>Si</label>
-            <input type="checkbox" style={styles.checkbox} />
-          </div>
-          <div style={styles.option}>
-            <label>No</label>
-            <input type="checkbox" style={styles.checkbox} />
-          </div>
-        </div>
-      </div>
+
       <div style={styles.buttonContainer}>
         <button style={styles.button}>Enviar</button>
       </div>

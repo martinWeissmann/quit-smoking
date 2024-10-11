@@ -1,3 +1,6 @@
+'use client'; // Añade esta línea para convertirlo en un Client Component
+
+
 import React from 'react';
 
 const DoctorProfile: React.FC = () => {
@@ -25,6 +28,11 @@ const DoctorProfile: React.FC = () => {
     },
   ];
 
+  // Función para regresar a la página anterior
+  const goBack = () => {
+    window.history.back();
+  };
+
   return (
     <div
       style={{
@@ -35,8 +43,26 @@ const DoctorProfile: React.FC = () => {
         textAlign: 'center',
       }}
     >
+      {/* Flecha de regreso */}
+      <span
+        style={{
+          cursor: 'pointer',
+          position: 'absolute',
+          top: '20px',
+          left: '20px',
+          fontSize: '44px',
+          color: '#f49034',
+          background: 'none', // Sin fondo
+          border: 'none', // Sin borde
+          padding: 0, // Sin padding
+        }}
+        onClick={goBack}
+      >
+        ←
+      </span>
+
       <h1 style={{ fontSize: '24px', fontWeight: 'bold', marginBottom: '20px' }}>
-        Página de médicos especializados
+        Conoce a nuestros médicos profesionales
       </h1>
       <p style={{ fontSize: '16px', marginBottom: '20px' }}>
         En QS sabemos que el proceso de dejar de fumar es complicado y que puede

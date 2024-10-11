@@ -1,3 +1,5 @@
+'use client'; // Añade esta línea para convertirlo en un Client Component
+
 import React from 'react';
 
 const Preguntas: React.FC = () => {
@@ -12,7 +14,6 @@ const Preguntas: React.FC = () => {
       marginRight: '250px',
       width: '60%',
       textAlign: 'left',
-      
     } as React.CSSProperties,
     title: {
       fontSize: '24px',
@@ -55,7 +56,6 @@ const Preguntas: React.FC = () => {
     buttonContainer: {
       textAlign: 'center',
       marginTop: '20px',
-    
     } as React.CSSProperties,
     button: {
       backgroundColor: '#f49034',
@@ -65,7 +65,6 @@ const Preguntas: React.FC = () => {
       borderRadius: '5px',
       cursor: 'pointer',
       fontSize: '16px',
-      
     } as React.CSSProperties,
     image: {
       margin: '20px auto',
@@ -95,10 +94,28 @@ const Preguntas: React.FC = () => {
       bottom: '0px',
       top: '270px',
     } as React.CSSProperties,
+    backArrow: {
+      cursor: 'pointer',
+      position: 'absolute',
+      top: '20px',
+      left: '20px',
+      fontSize: '44px',
+      color: '#f49034',
+    } as React.CSSProperties,
+  };
+
+  // Función para regresar a la página anterior
+  const goBack = () => {
+    window.history.back();
   };
 
   return (
     <div style={styles.container}>
+      {/* Flecha de regreso */}
+      <span style={styles.backArrow} onClick={goBack}>
+        ← 
+      </span>
+
       <h1 style={styles.title}>Preguntas de seguimiento básicas</h1>
       <img src="/OS.png" style={styles.image} />
       <img src="/vector.png" style={styles.vector} />
