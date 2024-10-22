@@ -1,16 +1,46 @@
+"use client"; // Esto marca el archivo como un componente del cliente
+
 import React from 'react';
 
 const App = () => {
+  // Función para regresar a la página anterior
+  const goBack = () => {
+    window.history.back();
+  };
+
+  const handleNavigation = (url: string) => {
+    window.location.href = url; // Navegar a la URL especificada
+  };
+
   return (
     <div style={styles.container}>
-      <img src="/vector.png" alt="decoracion-izquierda" style={styles.sideImageLeft} />
-      <img src="/imagen.png" alt="decoracion-derecha" style={styles.sideImageRight} />
+      {/* Flecha de regreso en la esquina superior izquierda */}
+      <span style={styles.backArrow} onClick={goBack}>
+        ← 
+      </span>
+
+      <img
+        src="/vector.png"
+        alt="decoracion-izquierda"
+        style={styles.sideImageLeft}
+      />
+      <img
+        src="/imagen.png"
+        alt="decoracion-derecha"
+        style={styles.sideImageRight}
+      />
       
       <div style={styles.logo}>
-        <img src="/OS.png" alt="qs logo" style={styles.logoImage} />
+        <img src="/OS.png" alt="logo qs" style={styles.logoImage} />
       </div>
-      <button style={styles.loginBtn}>Iniciar sesión</button>
-      <button style={styles.registerBtn}>Registrarme</button>
+      
+      <button style={styles.loginBtn} onClick={() => handleNavigation("http://localhost:3000/login")}>
+        Iniciar sesión
+      </button>
+      <button style={styles.registerBtn} 
+      onClick={() => handleNavigation("http://localhost:3000/register")}>
+        Registrarme
+      </button>
     </div>
   );
 }
@@ -22,18 +52,24 @@ const styles = {
     justifyContent: 'center',
     alignItems: 'center',
     height: '100vh',
-    position: 'relative',  // Necesario para las imágenes en los costados
-    backgroundColor: '#f5f5f5',
+    position: 'relative',
+    backgroundColor: 'white',
     fontFamily: 'Arial, sans-serif',
   },
-  sideImageLeft: {
+  backArrow: {
+    fontSize: '24px',
     cursor: 'pointer',
+    position: 'absolute', // Posiciona la flecha de manera absoluta
+    top: '20px', // Espaciado desde la parte superior
+    left: '20px', // Espaciado desde la izquierda
+    zIndex: 10, // Asegura que la flecha esté por encima de otros elementos
+  },
+  sideImageLeft: {
     position: 'absolute',
     top: '20px',
     left: '20px',
     fontSize: '44px',
     color: '#f49034',
-
   },
   sideImageRight: {
     position: 'absolute',
@@ -45,13 +81,12 @@ const styles = {
     right: '0px',
     bottom: '0px',
     top: '270px',
-
   },
   logo: {
     marginBottom: '20px',
   },
   logoImage: {
-    width: '100px', // Puedes ajustar el tamaño del logo según lo necesites
+    width: '160px',
   },
   loginBtn: {
     width: '200px',
