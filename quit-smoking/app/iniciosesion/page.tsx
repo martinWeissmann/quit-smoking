@@ -161,4 +161,4 @@ const styles = {
   },
 };
 
-export default RegisterForm;
+export default RegisterForm; 
