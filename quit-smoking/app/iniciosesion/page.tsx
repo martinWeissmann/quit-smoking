@@ -43,26 +43,8 @@ const RegisterForm = () => {
       <div style={styles.registerContainer}>
         <h2>Ingresa tus datos para que tu vida sin humo comience hoy</h2>
         <form onSubmit={handleSubmit} style={styles.registerForm}>
-          <div style={styles.inputGroup}>
-            <input 
-              type="text" 
-              name="firstName" 
-              placeholder="Nombre..." 
-              value={formData.firstName} 
-              onChange={handleChange} 
-              style={styles.input}
-              required 
-            />
-            <input 
-              type="text" 
-              name="lastName" 
-              placeholder="Apellido..." 
-              value={formData.lastName} 
-              onChange={handleChange} 
-              style={styles.input}
-              required 
-            />
-          </div>
+          
+          
 
           <div style={styles.inputGroup}>
             <input 
@@ -85,25 +67,7 @@ const RegisterForm = () => {
             />
           </div>
 
-          <div style={styles.inputGroup}>
-            <input 
-              type="number" 
-              name="birthYear" 
-              placeholder="Año de nacimiento..." 
-              value={formData.birthYear} 
-              onChange={handleChange} 
-              style={styles.input}
-              required 
-            />
-            <input 
-              type="text" 
-              name="gender" 
-              placeholder="Genero..." 
-              value={formData.gender} 
-              onChange={handleChange} 
-              style={styles.input}
-            />
-          </div>
+          
 
           <button type="submit" style={styles.button}>REGISTRARSE</button>
         </form>

@@ -100,11 +100,11 @@ const App = () => {
         <img src="/OS.png" alt="logo qs" style={styles.logoImage} />
       </div>
       
-      <button style={styles.loginBtn} onClick={() => handleNavigation("http://localhost:3000/login")}>
+      <button style={styles.loginBtn} onClick={() => handleNavigation("http://localhost:3000/iniciosesion")}>
         Iniciar sesión
       </button>
       <button style={styles.registerBtn} 
-      onClick={() => handleNavigation("http://localhost:3000/register")}>
+      onClick={() => handleNavigation("http://localhost:3000/registro")}>
         Registrarme
       </button>
     </div>
