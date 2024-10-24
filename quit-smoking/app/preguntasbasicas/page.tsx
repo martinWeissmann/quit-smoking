@@ -1,8 +1,10 @@
 'use client'; // Añade esta línea para convertirlo en un Client Component
 
-import React from 'react';
+import React, { useState } from 'react';
 
 const Preguntas: React.FC = () => {
+  const [cigarrillosHoy, setCigarrillosHoy] = useState('');
+
   const styles = {
     container: {
       fontFamily: 'Arial, sans-serif',
@@ -52,6 +54,16 @@ const Preguntas: React.FC = () => {
       borderRadius: '4px',
       display: 'inline-block',
       position: 'relative',
+    } as React.CSSProperties,
+    input: {
+      width: '50px',
+      height: '30px',
+      textAlign: 'center',
+      marginLeft: '20px',
+      border: '2px solid #f49034',
+      borderRadius: '4px',
+      color: '#f49034',
+      backgroundColor: '#fff',
     } as React.CSSProperties,
     buttonContainer: {
       textAlign: 'center',
@@ -192,6 +204,9 @@ const Preguntas: React.FC = () => {
           </div>
         </div>
       </div>
+
+      {/* Nueva pregunta para cuántas veces fumó hoy */}
+     
 
       <div style={styles.buttonContainer}>
         <button style={styles.button}>Enviar</button>

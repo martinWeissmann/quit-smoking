@@ -69,7 +69,7 @@ const RegisterForm = () => {
 
           
 
-          <button type="submit" style={styles.button}>REGISTRARSE</button>
+          <button type="submit" style={styles.button}>Iniciar Sesion</button>
         </form>
       </div>
       <img
