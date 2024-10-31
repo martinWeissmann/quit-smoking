@@ -45,6 +45,15 @@ const Calendario: React.FC = () => {
     window.history.back();
   };
 
+  // Define las URLs de las páginas a las que se puede redirigir
+  const paginas = ['/preguntasbasicas', '/preguntasintermedias', '/preguntasavanzadas'];
+
+  // Función para redirigir a una página aleatoria
+  const redirigirPaginaAleatoria = () => {
+    const paginaAleatoria = paginas[Math.floor(Math.random() * paginas.length)];
+    window.location.href = paginaAleatoria;
+  };
+
   // Calcula el número total de celdas para mostrar solo las necesarias
   const totalCeldas = primerDia + diasEnMes;
   const totalFilas = Math.ceil(totalCeldas / 7);
@@ -70,7 +79,11 @@ const Calendario: React.FC = () => {
           }
           const dia = i - primerDia + 1;
           return (
-            <div key={i} style={diaContenedor}>
+            <div 
+              key={i} 
+              style={diaContenedor} 
+              onClick={redirigirPaginaAleatoria} // Redirige al hacer clic en la fecha
+            >
               {dia}
             </div>
           );
@@ -100,6 +113,8 @@ const Calendario: React.FC = () => {
     </div>
   );
 };
+
+// Aquí están tus estilos...
 
 const contenedor: React.CSSProperties = {
   position: 'relative',
@@ -147,8 +162,8 @@ const diaSemana: React.CSSProperties = {
   color: '#F7931E',
   fontWeight: 'bold',
   padding: '45px',
-  gridColumnGap: '110px', // Espacio entre columnas
-  marginLeft: '-70px', // Mueve cada día más a la izquierda
+  gridColumnGap: '110px',
+  marginLeft: '-70px',
 };
 
 const calendario: React.CSSProperties = {
@@ -158,7 +173,7 @@ const calendario: React.CSSProperties = {
   width: '100%',
   maxWidth: '590px',
   border: '1px solid #F7931E',
-  marginTop: '-160px', // Ajusta este valor según sea necesario
+  marginTop: '-160px',
 };
 
 const diaContenedor: React.CSSProperties = {
@@ -182,7 +197,7 @@ const botones: React.CSSProperties = {
   justifyContent: 'space-between',
   padding: '10 20px',
   marginBottom: '70px',
-  marginLeft: '40px', // Ajusta este margen para mover el botón hacia la derecha o izquierda
+  marginLeft: '40px',
 };
 
 const botonIzquierda: React.CSSProperties = {
@@ -197,7 +212,7 @@ const botonIzquierda: React.CSSProperties = {
   alignItems: 'center',
   justifyContent: 'center',
   cursor: 'pointer',
-  marginLeft: '110px', // Ajusta este margen para mover el botón hacia la derecha o izquierda
+  marginLeft: '110px',
   bottom: '42%',
 };
 
@@ -213,7 +228,7 @@ const botonDerecha: React.CSSProperties = {
   alignItems: 'center',
   justifyContent: 'center',
   cursor: 'pointer',
-  marginRight: '130px', // Ajusta este margen para mover el botón hacia la derecha o izquierda
+  marginRight: '130px',
 };
 
 const elementosDecorativos: React.CSSProperties = {
