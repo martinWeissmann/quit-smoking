@@ -19,13 +19,7 @@ const DoctorProfile: React.FC = () => {
       doctoraliaUrl:
         'https://www.doctoraliar.com/hernan-basilo-vigil/neumonologo/capital-federal#address-id=136005&is-online-only=false&filters%5Bspecializations%5D%5B%5D=44',
     },
-    {
-      name: 'Dr. Juan Rodríguez',
-      phone: '011 15-9876-5432',
-      image: '/juan.png', // Coloca la URL de la imagen
-      doctoraliaUrl:
-        'https://www.doctoraliar.com/juan-rodriguez/neumonologo/capital-federal',
-    },
+   
   ];
 
   // Función para regresar a la página anterior
