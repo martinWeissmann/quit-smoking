@@ -1,21 +1,16 @@
+// firebaseConfig.ts
 import { initializeApp } from 'firebase/app';
-import { getAuth, GoogleAuthProvider } from 'firebase/auth';
+import { getAuth } from 'firebase/auth';
 
 const firebaseConfig = {
-    apiKey: "AIzaSyDf-v9AwV4272oz8R1Cb7WAP7LUhbqv4kw",  // Clave de API web
-    authDomain: "quese.firebaseapp.com",               // Este es el authDomain que necesitas
-    projectId: "quese-be4ed",                           // ID del proyecto
-    storageBucket: "quese.appspot.com",                 // El storageBucket generalmente sigue este formato
-    messagingSenderId: "142288183482",                  // Número de proyecto
-    appId: "1:142288183482:web:6d12eae2a8b67d6991e283",// ID de la app
-    measurementId: "TU_MEASUREMENT_ID"                  // Opcional, si usas Google Analytics
+    apiKey: "AIzaSyBx0FI9JuytqRzGYRQjIdxNyD2oiMJJViI",
+    authDomain: "proa-16d0b.firebaseapp.com",
+    projectId: "proa-16d0b",
+    storageBucket: "proa-16d0b.firebasestorage.app",
+    messagingSenderId: "656436986435",
+    appId: "1:656436986435:web:42b8e9bd729ae774e9caf6",
+    measurementId: "G-VJBHM6Z2HD"
 };
 
-
-
-// Inicializa Firebase
 const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-const provider = new GoogleAuthProvider();
-
-export { auth, provider };
+export const auth = getAuth(app);
