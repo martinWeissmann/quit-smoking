@@ -95,14 +95,7 @@ const RegisterForm = () => {
               style={styles.input}
               required 
             />
-            <input 
-              type="text" 
-              name="gender" 
-              placeholder="Genero..." 
-              value={formData.gender} 
-              onChange={handleChange} 
-              style={styles.input}
-            />
+
           </div>
 
           <button type="submit" style={styles.button}>REGISTRARSE</button>
