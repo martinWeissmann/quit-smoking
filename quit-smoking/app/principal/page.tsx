@@ -82,7 +82,7 @@ const App: React.FC = () => {
       <img
         src="/ppa.png"
         style={styles.ppa}
-        onClick={() => handleNavigation("/regilogin")}
+        onClick={() => handleNavigation("/signin")}
       />
     </div>
   );
