@@ -21,14 +21,25 @@ const App: React.FC = () => {
           <img src="/qs.png" style={styles.image} />
         </div>
         <div style={styles.icons}>
+          {/* Quinta Sección primero */}
           <div style={styles.icon}>
-            {/* Each image has a unique onClick event handler */}
+            <img
+              src="/pre.png" // Reemplaza por el ícono correspondiente
+              alt="¿De que se trata?"
+              style={styles.iconImage}
+              onClick={() => handleNavigation("/dequetrata")} // Ruta hacia la nueva pantalla
+            />
+            <p style={styles.iconText}>¿De que se trata?</p>
+          </div>
+
+          {/* Las demás secciones */}
+          <div style={styles.icon}>
             <img
               src="/calendario.png"
               alt="Calendario"
               style={styles.iconImage}
-              onClick={() => handleNavigation("http://localhost:3000/")}
-            />
+              onClick={() => handleNavigation("http://localhost:3000")}
+            />  kkkkkkkk
             <p style={styles.iconText}>Calendario</p>
           </div>
           <div style={styles.icon}>
@@ -61,24 +72,6 @@ const App: React.FC = () => {
         </div>
       </header>
       
-      {/* Flecha de regreso */}
-      <span
-        style={{
-          cursor: "pointer",
-          position: "absolute",
-          top: "20px",
-          left: "20px",
-          fontSize: "44px",
-          color: "#f49034",
-          background: "none", // Sin fondo
-          border: "none", // Sin borde
-          padding: 0, // Sin padding
-        }}
-        onClick={goBack}
-      >
-        ←
-      </span>
-
       <img
         src="/ppa.png"
         style={styles.ppa}
@@ -116,7 +109,7 @@ const styles = {
     margin: "20px auto",
     maxWidth: "100%",
     height: "auto",
-    right: "1162px",
+    right: "1000px",
     bottom: "520px",
     marginTop: "-200px",
   } as React.CSSProperties,

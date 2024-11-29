@@ -1,36 +1,67 @@
-import React from 'react';
+import React from "react";
+import { Bar } from "react-chartjs-2";
+import { Link } from "react-router-dom";
+import { Chart as ChartJS, CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend } from "chart.js";
 
-const App: React.FC = () => {
-  const data = [
-    { label: 'Semana 1', value: 48 },
-    { label: 'Semana 2', value: 36 },
-    { label: 'Semana 3', value: 24 },
-    { label: 'Semana 4', value: 12 },
-  ];
+// Registrar los componentes de Chart.js
+ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend);
 
-  const maxValue = Math.max(...data.map(d => d.value));
+interface Props {
+  weeklyData: number[];
+}
+
+const ChartScreen: React.FC<Props> = ({ weeklyData }) => {
+  const chartData = {
+    labels: ["Semana 1", "Semana 2", "Semana 3", "Semana 4"],
+    datasets: [
+      {
+        label: "Cigarrillos fumados por semana",
+        data: weeklyData,
+        backgroundColor: "rgba(244, 131, 37, 0.5)",
+        borderColor: "#f48325",
+        borderWidth: 1,
+      },
+    ],
+  };
+
+  const chartOptions = {
+    responsive: true,
+    plugins: {
+      legend: { display: true },
+      title: { display: true, text: "Seguimiento de cantidades semanales" },
+    },
+  };
 
   return (
-    <div style={{ width: '100%', maxWidth: '600px', margin: 'auto', textAlign: 'center' }}>
-      <h2>Seguimiento de cantidades semanales</h2>
-      <div style={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'space-around', height: '200px' }}>
-        {data.map((item, index) => (
-          <div key={index} style={{ textAlign: 'center' }}>
-            <div
-              style={{
-                height: `${(item.value / maxValue) * 100}%`,
-                width: '50px',
-                backgroundColor: '#d3d3d3',
-                borderTop: '2px solid #FF6600',
-              }}
-            ></div>
-            <p style={{ marginTop: '5px' }}>{item.label}</p>
-          </div>
-        ))}
+    <div style={styles.container}>
+      <h1 style={styles.title}>Seguimiento del progreso</h1>
+      <div style={{ marginBottom: "2rem" }}>
+        <Bar data={chartData} options={chartOptions} />
       </div>
-      <p style={{ color: '#FF6600', fontWeight: 'bold' }}>Cigarrillos fumados por semana</p>
+      <Link to="/" style={styles.link}>
+        Volver al formulario
+      </Link>
     </div>
   );
 };
 
-export default App;
+const styles: { [key: string]: React.CSSProperties } = {
+  container: {
+    fontFamily: "Arial, sans-serif",
+    padding: "2rem",
+    textAlign: "center",
+    color: "#f48325",
+  },
+  title: {
+    fontSize: "1.8rem",
+    marginBottom: "2rem",
+  },
+  link: {
+    color: "#f48325",
+    textDecoration: "none",
+    fontSize: "1rem",
+    fontWeight: "bold",
+  },
+};
+
+export default ChartScreen;

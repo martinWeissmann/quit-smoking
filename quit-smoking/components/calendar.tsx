@@ -1,10 +1,9 @@
-'use client'; // Añade esta línea para convertirlo en un Client Component
+'use client'; // Convierte el componente en un Client Component
 
 import React, { useState } from 'react';
 
 const getPrimerDiaDelMes = (mes: number, anio: number): number => {
-  // Ajusta el primer día del mes para que el lunes sea el primer día
-  return (new Date(anio, mes - 1, 1).getDay() + 6) % 7;
+  return (new Date(anio, mes - 1, 1).getDay() + 6) % 7; // Ajusta para que lunes sea el primer día
 };
 
 const getDiasEnMes = (mes: number, anio: number): number => {
@@ -12,60 +11,37 @@ const getDiasEnMes = (mes: number, anio: number): number => {
 };
 
 const Calendario: React.FC = () => {
-  const mesActual = new Date().getMonth() + 1;
-  const anioActual = new Date().getFullYear();
+  const hoy = new Date(); // Fecha actual
+  const mesActual = hoy.getMonth() + 1;
+  const anioActual = hoy.getFullYear();
+  const diaActual = hoy.getDate();
 
   const [mes, setMes] = useState(mesActual);
   const [anio, setAnio] = useState(anioActual);
 
-  const dias = ['LUNES', 'MARTES', 'MIERCOLES', 'JUEVES', 'VIERNES', 'SABADO', 'DOMINGO']; // Comienza con Lunes
+  const dias = ['LUNES', 'MARTES', 'MIÉRCOLES', 'JUEVES', 'VIERNES', 'SÁBADO', 'DOMINGO'];
   const primerDia = getPrimerDiaDelMes(mes, anio);
   const diasEnMes = getDiasEnMes(mes, anio);
 
-  const avanzarMes = () => {
-    if (mes === 12) {
-      setMes(1);
-      setAnio(anio + 1);
-    } else {
-      setMes(mes + 1);
-    }
-  };
-
-  const retrocederMes = () => {
-    if (mes === 1) {
-      setMes(12);
-      setAnio(anio - 1);
-    } else {
-      setMes(mes - 1);
-    }
-  };
-
-  // Función para regresar a la página anterior
   const goBack = () => {
     window.history.back();
   };
 
-  // Define las URLs de las páginas a las que se puede redirigir
   const paginas = ['/preguntasbasicas', '/preguntasintermedias', '/preguntasavanzadas'];
-
-  // Función para redirigir a una página aleatoria
   const redirigirPaginaAleatoria = () => {
     const paginaAleatoria = paginas[Math.floor(Math.random() * paginas.length)];
     window.location.href = paginaAleatoria;
   };
 
-  // Calcula el número total de celdas para mostrar solo las necesarias
   const totalCeldas = primerDia + diasEnMes;
   const totalFilas = Math.ceil(totalCeldas / 7);
   const celdasVisibles = totalFilas * 7;
 
   return (
     <div style={contenedor}>
-      {/* Flecha de regreso */}
       <span style={flechaRegreso} onClick={goBack}>
-        ← 
+        ←
       </span>
-
       <h1 style={titulo}>{new Date(anio, mes - 1).toLocaleString('es-ES', { month: 'long' })} {anio}</h1>
       <div style={diasSemana}>
         {dias.map((dia) => (
@@ -78,21 +54,20 @@ const Calendario: React.FC = () => {
             return <div key={i} style={diaContenedor} className="vacío"></div>;
           }
           const dia = i - primerDia + 1;
+          const esHoy = dia === diaActual && mes === mesActual && anio === anioActual;
+
           return (
-            <div 
-              key={i} 
-              style={diaContenedor} 
-              onClick={redirigirPaginaAleatoria} // Redirige al hacer clic en la fecha
+            <div
+              key={i}
+              style={esHoy ? { ...diaContenedor, ...diaActualEstilo } : diaContenedor}
+              onClick={esHoy ? redirigirPaginaAleatoria : undefined} // Solo permite clic en la fecha actual
             >
               {dia}
             </div>
           );
         })}
       </div>
-      <div style={botones}>
-        <button style={botonIzquierda} onClick={retrocederMes}>&larr;</button>
-        <button style={botonDerecha} onClick={avanzarMes}>&rarr;</button>
-      </div>
+
       <div style={elementosDecorativos}>
         <img 
           src="/vector.png" 
@@ -189,46 +164,11 @@ const diaContenedor: React.CSSProperties = {
   fontWeight: 'bold',
 };
 
-const botones: React.CSSProperties = {
-  position: 'absolute',
-  bottom: '2%',
-  width: '100%',
-  display: 'flex',
-  justifyContent: 'space-between',
-  padding: '10 20px',
-  marginBottom: '70px',
-  marginLeft: '40px',
-};
-
-const botonIzquierda: React.CSSProperties = {
+const diaActualEstilo: React.CSSProperties = {
   backgroundColor: '#F7931E',
   color: 'white',
-  border: 'none',
-  borderRadius: '50%',
-  width: '60px',
-  height: '30px',
-  fontSize: '20px',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  cursor: 'pointer',
-  marginLeft: '110px',
-  bottom: '42%',
-};
-
-const botonDerecha: React.CSSProperties = {
-  backgroundColor: '#F7931E',
-  color: 'white',
-  border: 'none',
-  borderRadius: '50%',
-  width: '60px',
-  height: '30px',
-  fontSize: '20px',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  cursor: 'pointer',
-  marginRight: '130px',
+  borderRadius: '0%',
+  fontWeight: 'bold',
 };
 
 const elementosDecorativos: React.CSSProperties = {
@@ -244,7 +184,7 @@ const lineaIzquierda: React.CSSProperties = {
   position: 'absolute',
   top: '18%',
   left: '11%',
-  width: '200px', 
+  width: '200px',
   height: 'auto',
 };
 
@@ -252,7 +192,7 @@ const logo: React.CSSProperties = {
   position: 'absolute',
   top: '5%',
   right: '8%',
-  width: '100px', 
+  width: '100px',
   height: 'auto',
 };
 
@@ -260,7 +200,7 @@ const curvaDerecha: React.CSSProperties = {
   position: 'absolute',
   bottom: '0%',
   right: '6%',
-  width: '170px', 
+  width: '170px',
   height: 'auto',
   objectFit: 'cover',
 };
