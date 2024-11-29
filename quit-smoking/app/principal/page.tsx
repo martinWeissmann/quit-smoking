@@ -24,7 +24,7 @@ const App: React.FC = () => {
           {/* Quinta Sección primero */}
           <div style={styles.icon}>
             <img
-              src="/pre.png" // Reemplaza por el ícono correspondiente
+              src="/pregunta.png" // Reemplaza por el ícono correspondiente
               alt="¿De que se trata?"
               style={styles.iconImage}
               onClick={() => handleNavigation("/dequetrata")} // Ruta hacia la nueva pantalla
@@ -39,7 +39,7 @@ const App: React.FC = () => {
               alt="Calendario"
               style={styles.iconImage}
               onClick={() => handleNavigation("http://localhost:3000")}
-            />  kkkkkkkk
+            />  
             <p style={styles.iconText}>Calendario</p>
           </div>
           <div style={styles.icon}>

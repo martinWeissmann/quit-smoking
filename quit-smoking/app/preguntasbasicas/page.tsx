@@ -105,7 +105,7 @@ const Preguntas: React.FC = () => {
 
   // Función para manejar la redirección al hacer clic en "Enviar"
   const handleEnviarClick = () => {
-    window.location.href = "http://localhost:3000/"; // Cambia '/pagina-destino' por la ruta deseada
+    window.location.href = "http://localhost:3000/principal"; // Cambia '/pagina-destino' por la ruta deseada
   };
 
   // Función para regresar a la página anterior
