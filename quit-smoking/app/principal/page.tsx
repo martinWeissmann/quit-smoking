@@ -136,7 +136,7 @@ const styles = {
     color: "#000000", // Color negro
   },
   ppa: {
-    marginTop: "153px",
+    marginTop: "140px",
     marginLeft: "1100px",
     cursor: "pointer", // Make it look clickable
   },
