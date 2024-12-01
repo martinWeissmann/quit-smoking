@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { auth, provider, signInWithPopup } from "@/lib/firebase";
+import { Cigarette } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
@@ -14,7 +15,7 @@ export default function SignIn() {
     try {
       setLoading(true);
       await signInWithPopup(auth, provider);
-      router.push("/principal");
+      router.push("/dashboard");
     } catch (error) {
       console.error("Error al iniciar sesión con Google:", error);
     } finally {
@@ -27,9 +28,9 @@ export default function SignIn() {
       <Card className="w-full max-w-md">
         <CardHeader className="text-center">
           <div className="flex justify-center mb-4">
-           
+            <Cigarette className="w-12 h-12 text-blue-600" />
           </div>
-          <CardTitle className="text-2xl">Bienvenido a quit smoking</CardTitle>
+          <CardTitle className="text-2xl">Bienvenido a DejarFácil</CardTitle>
           <CardDescription>Inicia sesión para seguir tu progreso</CardDescription>
         </CardHeader>
         <CardContent>

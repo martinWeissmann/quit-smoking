@@ -125,8 +125,8 @@ const styles = {
     alignItems: "center",
   },
   iconImage: {
-    width: "130px",
-    height: "180px",
+    width: "140px",
+    height: "190px",
     marginBottom: "10px",
     cursor: "pointer", // Make it look clickable
   },
