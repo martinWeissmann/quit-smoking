@@ -116,7 +116,7 @@ const Preguntas: React.FC = () => {
   return (
     <div style={styles.container}>
       {/* Flecha de regreso */}
-      <span onClick={goBack} style={{ position: 'absolute', top: '20px', left: '-210px', cursor: 'pointer', fontSize: '50px', color: '#f49034' }}>
+      <span onClick={goBack} style={{ position: 'absolute', top: '20px', left: '-180px', cursor: 'pointer', fontSize: '50px', color: '#f49034' }}>
         ←
       </span>
 

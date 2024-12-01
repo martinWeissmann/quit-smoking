@@ -1,18 +1,30 @@
-import { initializeApp } from 'firebase/app';
-import { getAuth } from 'firebase/auth';
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+import { getAuth, GoogleAuthProvider } from 'firebase/auth';
 
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyA_kY-Xq4Yw2TPmyk51CkUuGMCQMk3RKq4",
-  authDomain: "inicio-70691.firebaseapp.com",
-  projectId: "inicio-70691",
-  storageBucket: "inicio-70691.appspot.com",
-  messagingSenderId: "643969179020",
-  appId: "1:643969179020:web:7031ed5c66b1da19f00aa9"
+  apiKey: "AIzaSyB2A8_TrGYuAr6LOq40i8DHSvREJLV21YI",
+  authDomain: "quitsmoking-9ab0f.firebaseapp.com",
+  projectId: "quitsmoking-9ab0f",
+  storageBucket: "quitsmoking-9ab0f.firebasestorage.app",
+  messagingSenderId: "378840311975",
+  appId: "1:378840311975:web:7181bb9f0d16bcc3c35382",
+  measurementId: "G-DMZ87CZEME"
 };
 
-// Inicializar Firebase
+// Initialize Firebase
 const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
 
-// Exportar la instancia de autenticación
 const auth = getAuth(app);
-export { auth };
+
+// Crear un proveedor para Google
+const provider = new GoogleAuthProvider();
+
+export { auth, provider };
